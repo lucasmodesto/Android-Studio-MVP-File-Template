@@ -1,7 +1,7 @@
 # Android-Studio-MVP-Template
 File template to generate View (Activity / Fragment) , Contract (View and Presenter Interface) and Presenter classes.
 
-* This template was designed to be used togheter with [Dagger2-MVP-File-Template](https://github.com/lucasmodesto/Android-Studio-Dagger-2-File-Template)
+* This template was designed to be used together with [Dagger2-MVP-File-Template](https://github.com/lucasmodesto/Android-Studio-Dagger-2-File-Template)
 
 # Template Files
 - View
