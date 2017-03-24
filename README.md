@@ -84,3 +84,5 @@ You need to copy "Project Template" folder into the following path:
 Then it's necessary to restart Android Studio. After that, right-click on app folder and go to:
 new -> other -> MVP Template
 
+Optionally you can generate the classes in Kotlin language by selecting "Generate files in Kotlin".
+
