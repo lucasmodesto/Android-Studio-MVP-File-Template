@@ -1,0 +1,39 @@
+<template format="4"
+		revision="1"
+		name="MVP Template"
+		description="Creates MVP classes, includes View (Activit/Fragment), Contract and Presenter.">
+ 
+	<category value="Other"/>
+ 
+	<parameter id="className"
+		name="Functionality name"
+		type="string"
+		constraints="class|unique|nonempty"
+		default="Sample"
+		help="Creates classes and variables names"/>
+
+    	<parameter
+        id="includeLayout"
+        name="Create layout file?"
+        type="boolean"
+        default="true"
+        help="Creates .XML layout file for the View" />
+
+	<parameter
+        id="isFragment"
+        name="View = Fragment?"
+        type="boolean"
+        default="false"
+        help="Creates Fragment instead of Activity" />
+
+	<parameter
+        id="generateKotlin"
+        name="Create files in Kotlin"
+        type="boolean"
+        default="false"
+        help="Creates Kotlin files instead of Java" />
+ 
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+ 
+</template>
