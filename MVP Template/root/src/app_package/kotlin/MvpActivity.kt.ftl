@@ -7,7 +7,7 @@ import ${packageName}.R
 import android.support.design.widget.Snackbar
 import ${packageName}.ui.core.BaseActivity
 import javax.inject.Inject
-import kotlinx.android.synthetic.main.${className?lower_case}.*
+import kotlinx.android.synthetic.main.activity_${className?lower_case}.*
 
 class ${className}Activity : BaseActivity(), ${className}Contract.View {
 

@@ -10,7 +10,7 @@ import android.widget.Toast
 import ${packageName}.R
 import ${packageName}.ui.core.BaseFragment
 import javax.inject.Inject
-import kotlinx.android.synthetic.main.${className?lower_case}.*
+import kotlinx.android.synthetic.main.fragment_${className?lower_case}.*
 
 class ${className}Fragment : BaseFragment(), ${className}Contract.View {
 
