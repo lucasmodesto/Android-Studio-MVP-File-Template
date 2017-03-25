@@ -41,6 +41,6 @@ class ${className}Activity : BaseActivity(), ${className}Contract.View {
   }
 
   override fun showMessage(message: String) {
-    Snackbar.make(root_viewgroup, message, Snackbar.LENGTH_SHORT).show()
+    Snackbar.make(root_viewgroup, message, Snackbar.LENGTH_LONG).show()
   }
 }
