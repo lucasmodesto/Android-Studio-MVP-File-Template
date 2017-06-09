@@ -19,8 +19,6 @@ public class ${className}Activity extends BaseActivity implements ${className}Co
 
     @BindView(R.id.root_viewgroup) View rootView;
 
-    private ProgressDialog progress;
-
     @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 	setContentView(R.layout.activity_${className?lower_case});
@@ -28,7 +26,6 @@ public class ${className}Activity extends BaseActivity implements ${className}Co
     }
 
     private void init() {
-        progress = getDefaultProgress();
         getUiComponent().inject(this);
 	ButterKnife.bind(this);
         presenter.attach(this);

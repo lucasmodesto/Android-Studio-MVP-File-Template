@@ -20,8 +20,6 @@ public class ${className}Fragment extends BaseFragment implements ${className}Co
 
     @BindView(R.id.root_viewgroup) View rootView;
 
-    private ProgressDialog progress;
-
     @Nullable @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
         @Nullable Bundle savedInstanceState) {
@@ -31,7 +29,6 @@ public class ${className}Fragment extends BaseFragment implements ${className}Co
     }
 
     private void init(View view) {
-        progress = getDefaultProgress();
  	ButterKnife.bind(this, view);
         getUiComponent().inject(this);
         presenter.attach(this);

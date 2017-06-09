@@ -13,8 +13,6 @@ class ${className}Activity : BaseActivity(), ${className}Contract.View {
 
   @Inject lateinit var presenter: ${className}Presenter
 
-  private var progress: ProgressDialog? = null
-
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_${className?lower_case})
@@ -22,7 +20,6 @@ class ${className}Activity : BaseActivity(), ${className}Contract.View {
   }
 
   private fun init() {
-    progress = getDefaultProgress
     uiComponent.inject(this)
     presenter.attach(this)
  }
@@ -32,15 +29,10 @@ class ${className}Activity : BaseActivity(), ${className}Contract.View {
     super.onDestroy()
   }
 
-  override fun showProgress() {
-    progress?.show()
-  }
-
-  override fun hideProgress() {
-    progress?.dismiss()
-  }
-
-  override fun showMessage(message: String) {
-    Snackbar.make(root_viewgroup, message, Snackbar.LENGTH_LONG).show()
-  }
+  override fun showMessage(message: Any) {
+        when (message) {
+            is String -> Snackbar.make(root_viewgroup, message, Snackbar.LENGTH_LONG).show()
+            is Int -> Snackbar.make(root_viewgroup, getString(message), Snackbar.LENGTH_LONG).show()
+        }
+    }
 }

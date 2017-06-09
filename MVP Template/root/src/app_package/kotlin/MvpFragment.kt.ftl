@@ -16,8 +16,6 @@ class ${className}Fragment : BaseFragment(), ${className}Contract.View {
 
   @Inject lateinit var presenter: ${className}Presenter
 
-  private var progress: ProgressDialog? = null
-
   override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
       savedInstanceState: Bundle?): View? {
     return inflater!!.inflate(R.layout.fragment_${className?lower_case}, container, false)
@@ -29,7 +27,6 @@ class ${className}Fragment : BaseFragment(), ${className}Contract.View {
     }
 
     private fun init() {
-     progress = getDefaultProgress
      uiComponent.inject(this)
      presenter.attach(this)
   }
@@ -39,16 +36,12 @@ class ${className}Fragment : BaseFragment(), ${className}Contract.View {
     super.onDestroy()
   }
 
-  override fun showProgress() {
-    if (isAdded) progress?.show()
-  }
-
-  override fun hideProgress() {
-    if (isAdded) progress?.dismiss()
-  }
-
-  override fun showMessage(message: String) {
-    Snackbar.make(root_viewgroup, message, Snackbar.LENGTH_LONG).show()
-  }
+  override fun showMessage(message: Any) {
+        when (message) {
+            is String -> Snackbar.make(root_viewgroup, message, Snackbar.LENGTH_LONG).show()
+            is Int -> Snackbar.make(root_viewgroup, getString(message), Snackbar.LENGTH_LONG).show()
+        }
+    }
 }
+
 
