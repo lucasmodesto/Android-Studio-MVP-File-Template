@@ -2,6 +2,7 @@ package ${packageName}.ui.${className?lower_case};
 
 import ${packageName}.ui.core.BasePresenter;
 import ${packageName}.ui.core.BaseView;
+import ${packageName}.ui.core.MvpPresenter;
  
 public interface ${className}Contract{
 	
@@ -9,7 +10,7 @@ public interface ${className}Contract{
  
 	}
  
-	interface Presenter extends BasePresenter<View> {
- 
-	}
+	abstract class Presenter extends MvpPresenter<View> {
+
+  	}
 }
