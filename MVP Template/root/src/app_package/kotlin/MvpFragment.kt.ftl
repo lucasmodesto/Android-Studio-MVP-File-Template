@@ -9,12 +9,22 @@ import android.view.ViewGroup
 import android.widget.Toast
 import ${packageName}.R
 import ${packageName}.ui.core.BaseFragment
+<#if di == "dagger">
 import javax.inject.Inject
+</#if>
+<#if di == "kodein">
+import com.github.salomonbrys.kodein.instance
+</#if>
 import kotlinx.android.synthetic.main.fragment_${className?lower_case}.*
 
 class ${className}Fragment : BaseFragment(), ${className}Contract.View {
 
+  <#if di == "dagger">  
   @Inject lateinit var presenter: ${className}Presenter
+  </#if>
+  <#if di =="kodein">
+  val presenter: ${className}Presenter by injector.instance()
+  </#if>
 
   override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
       savedInstanceState: Bundle?): View? {
@@ -27,7 +37,9 @@ class ${className}Fragment : BaseFragment(), ${className}Contract.View {
     }
 
     private fun init() {
+     <#if di == "dagger">
      uiComponent.inject(this)
+     </#if>
      presenter.attach(this)
   }
 

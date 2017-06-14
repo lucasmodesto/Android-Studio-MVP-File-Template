@@ -27,7 +27,7 @@ public class ${className}Activity extends BaseActivity implements ${className}Co
 
     private void init() {
         getUiComponent().inject(this);
-	ButterKnife.bind(this);
+	    ButterKnife.bind(this);
         presenter.attach(this);
     }
 

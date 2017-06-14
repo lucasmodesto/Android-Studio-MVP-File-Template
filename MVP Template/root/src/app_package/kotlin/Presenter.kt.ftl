@@ -1,9 +1,10 @@
 package ${packageName}.ui.${className?lower_case}
 
+<#if di == "dagger">
 import javax.inject.Inject
-import ${packageName}.ui.core.Presenter
+</#if>
 
-class ${className}Presenter @Inject constructor() : Presenter<${className}Contract.View>(), ${className}Contract.Presenter {
+class ${className}Presenter <#if di == "dagger">@Inject</#if> constructor() : ${className}Contract.Presenter() {
 
 }
 

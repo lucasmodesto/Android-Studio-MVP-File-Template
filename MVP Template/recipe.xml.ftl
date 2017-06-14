@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <recipe>
  	
-	<#if generateKotlin>
+	<#if language == "kotlin">
 
 	<instantiate from="src/app_package/kotlin/Contract.kt.ftl"
                    to="${escapeXmlAttribute(srcOut)}/ui/${className?lower_case}/${className}Contract.kt" />
@@ -10,14 +10,14 @@
 	<instantiate from="src/app_package/kotlin/Presenter.kt.ftl"
                    to="${escapeXmlAttribute(srcOut)}/ui/${className?lower_case}/${className}Presenter.kt" />
 
-	<#if isFragment>
+	<#if viewType == "fragment">
 
 	<instantiate from="src/app_package/kotlin/MvpFragment.kt.ftl"
                    to="${escapeXmlAttribute(srcOut)}/ui/${className?lower_case}/${className}Fragment.kt" />
 
 	</#if>
 
-	<#if !isFragment>
+	<#if viewType == "activity">
 
 	<instantiate from="src/app_package/kotlin/MvpActivity.kt.ftl"
                    to="${escapeXmlAttribute(srcOut)}/ui/${className?lower_case}/${className}Activity.kt" />
@@ -26,7 +26,7 @@
 
 	</#if>
 
-	<#if !generateKotlin>	
+	<#if language == "java">	
 	
 	<instantiate from="src/app_package/Contract.java.ftl"
                    to="${escapeXmlAttribute(srcOut)}/ui/${className?lower_case}/${className}Contract.java" />
@@ -34,14 +34,14 @@
 	<instantiate from="src/app_package/Presenter.java.ftl"
                    to="${escapeXmlAttribute(srcOut)}/ui/${className?lower_case}/${className}Presenter.java" />
 
-	<#if isFragment>
+	<#if viewType == "fragment">
 
 	<instantiate from="src/app_package/MvpViewFragment.java.ftl"
                    to="${escapeXmlAttribute(srcOut)}/ui/${className?lower_case}/${className}Fragment.java" />
 
 	</#if>
 
-	<#if !isFragment>
+	<#if viewType == "activity">
 
 	<instantiate from="src/app_package/MvpViewActivity.java.ftl"
                    to="${escapeXmlAttribute(srcOut)}/ui/${className?lower_case}/${className}Activity.java" />
@@ -53,7 +53,7 @@
 
 	<#if includeLayout>
 
-	<#if isFragment>
+	<#if viewType == "fragment">
 
 	<instantiate from="res/layout/mvp_activity.xml.ftl"
                        to="${escapeXmlAttribute(resOut)}/layout/fragment_${className?lower_case}.xml" />
@@ -63,7 +63,7 @@
 	</#if>
 
 
-	<#if !isFragment>
+	<#if viewType == "activity">
 
 	<instantiate from="res/layout/mvp_activity.xml.ftl"
                        to="${escapeXmlAttribute(resOut)}/layout/activity_${className?lower_case}.xml" />

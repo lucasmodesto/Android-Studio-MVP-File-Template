@@ -6,12 +6,22 @@ import android.widget.Toast
 import ${packageName}.R
 import android.support.design.widget.Snackbar
 import ${packageName}.ui.core.BaseActivity
+<#if di == "dagger">
 import javax.inject.Inject
+</#if>
+<#if di == "kodein">
+import com.github.salomonbrys.kodein.instance
+</#if>
 import kotlinx.android.synthetic.main.activity_${className?lower_case}.*
 
 class ${className}Activity : BaseActivity(), ${className}Contract.View {
 
+  <#if di == "dagger">
   @Inject lateinit var presenter: ${className}Presenter
+  </#if>
+  <#if di == "kodein">  
+  val presenter: ${className}Presenter by injector.instance()
+  </#if>  
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -20,7 +30,9 @@ class ${className}Activity : BaseActivity(), ${className}Contract.View {
   }
 
   private fun init() {
+    <#if di == "dagger">
     uiComponent.inject(this)
+    </#if>
     presenter.attach(this)
  }
 

@@ -12,7 +12,6 @@ interface ${className}Contract {
 
   abstract class Presenter : MvpPresenter<View>() {
 
-        abstract fun login(email: String, password: String)
     }
 }
 
