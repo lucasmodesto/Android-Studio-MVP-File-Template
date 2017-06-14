@@ -14,8 +14,6 @@ File template to generate View (Activity / Fragment) , Contract (View and Presen
 
     @BindView(R.id.root_viewgroup) View rootView;
 
-    private ProgressDialog progress;
-
     @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
@@ -23,7 +21,6 @@ File template to generate View (Activity / Fragment) , Contract (View and Presen
     }
 
     private void init() {
-        progress = getDefaultProgress();
         getUiComponent().inject(this);
         ButterKnife.bind(this);
         presenter.attach(this);
