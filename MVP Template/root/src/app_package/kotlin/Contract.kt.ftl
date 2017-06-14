@@ -2,6 +2,7 @@ package ${packageName}.ui.${className?lower_case}
 
 import ${packageName}.ui.core.BasePresenter
 import ${packageName}.ui.core.BaseView
+import ${packageName}.ui.core.MvpPresenter
 
 interface ${className}Contract {
 
@@ -9,8 +10,9 @@ interface ${className}Contract {
 
   }
 
-  interface Presenter : BasePresenter<View> {
+  abstract class Presenter : MvpPresenter<View>() {
 
-  }
+        abstract fun login(email: String, password: String)
+    }
 }
 
